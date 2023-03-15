@@ -31,10 +31,30 @@ class Game {
     cars = [car1, car2];
 
     // C38 AP
-    //criar novo grupo para fuels e powerCoins
+   fuels = newGroup();
+    powerCoins = new Group ();//criar novo grupo para fuels e powerCoins
 
     // Adicione o sprite de combustível ao jogo
+    this.addSprites(fuels, 4, fuelImage, 0.02);
+    
+    this.addSprites(PowerCoins, 18, powwerCoinImage, 0.09);
+  }
+  
+  addSprotes(spriteGroup, numberOfSrites, spriteImage, scale) {
+    for (var i = 0; i < numberOfSprites; i ++) {
+      var, x, y;
+      
+      x= random(width / 2 150, width / 2-15e);
 
+      y= random(-height 4.5, height 400);
+
+      var sprite=createSprite(x, y);
+
+      sprite.addlmage("sprite", spriteImage);
+
+      sprite.scale = scale;
+
+      spriteGroup,add(sprite);
     // Adicione o sprite de moeda ao jogo
   }
 
@@ -74,6 +94,15 @@ class Game {
 
         // C38  Marcar o jogador
         if (index === player.index) {
+          stroke(10);
+
+          fill("red");
+
+          ellipse(x, y, 60, 60);
+
+          this.handleFuel(index);
+
+          this.handlePowerCoins(index);
           
 
         }
@@ -90,9 +119,17 @@ class Game {
   }
 
   handleFuel(index) {
-    // Adicione o combustível
+    handleFuel (index) [
+cars [index - 1) overlap (fuels, function(collector, collected) {
+playerfuel =  165;
+
+//So event
+
+collected.remove();
+ });
+}
    
-  }
+
 
   handlePowerCoins(index) {
     cars[index - 1].overlap(powerCoins, function(collector, collected) {
